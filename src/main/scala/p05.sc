@@ -13,6 +13,7 @@ object P05 {
   // Again, with builtins this is easy. -> from the site answer
   def reverse[T](ls: List[T]): List[T] = ls.reverse
 
+  // go forward till the find_k element but keep the find_k 2 in a cache
   def reverse_1[T](l: List[T]): List[T] =  {
     def loop(l: List[T], rl: List[T]): List[T]  = l match {
       case Nil => rl
@@ -20,6 +21,8 @@ object P05 {
     }
     loop(l, Nil)
   }
+
+  def reverse_2[T](l: List[T]): List[T] =  l.foldLeft(List[T]()){(acc, h) => h :: acc}
 }
 import P05._
 
@@ -27,3 +30,4 @@ val lists = (0 to 10).toList.map( i => (0 to i).toList)
 
 lists.map(i => reverse(i))
 lists.map(i => reverse_1(i))
+lists.map(i => reverse_2(i))

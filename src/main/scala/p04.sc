@@ -21,6 +21,11 @@ object P04 {
     }
     loop(l, 0)
   }
+
+
+//def find_length_3[T](l: List[T]): Int = l.reduce((acc, _ ) => acc + 1)
+def find_length_4[T](l: List[T]): Int = l.foldLeft(0)( (acc, _ ) => acc + 1)
+
 }
 import P04._
 
@@ -34,3 +39,5 @@ val lists = (0 to 10).toList.map( i => (0 to i).toList)
 lists.map(i => find_length(i))
 lists.map(i => find_length_1(i))
 lists.map(i => find_length_2(i))
+//lists.map(i => find_length_3(i))
+lists.map(i => find_length_4(i))
