@@ -3,7 +3,7 @@
   *
   * Problem 01:
   *
-  * Find the last but one element of a list.
+  * Find the penultimate but one element of a list.
   * Example:
   * scala> penultimate(List(1, 1, 2, 3, 5, 8))
   * res0: Int = 5
@@ -15,10 +15,10 @@ object P02 {
     if (ls.isEmpty) throw new NoSuchElementException
     else ls.init.last
 
-  // go forward till the last element but keep the last 2 in a cache
+  // go forward till the penultimate element but keep the penultimate 2 in a cache
   def penultimate_1[T](l: List[T]): T = l match {
-    case _ :: p :: Nil => p
-    case _ :: t => penultimate_1(t)
+    case _ :: p :: _ :: Nil => p
+    case _ :: t :: u => penultimate_1(t :: u)
     case _ => throw  new NoSuchElementException
   }
 
@@ -36,5 +36,20 @@ object P02 {
     case _ => throw  new NoSuchElementException
   }
 
-
 }
+import P02._
+
+//penultimateBuiltin(List()) //NoSuchElementException()
+//penultimate_1(List())
+//penultimate_2a(List())
+//penultimate_2b(List())
+//penultimate_3a(List())
+//penultimate_3b(List())
+
+
+penultimateBuiltin(List(1,2,3,4,5,6,7))
+penultimate_1(List(1,2,3,4,5,6,7))
+penultimate_2a(List(1,2,3,4,5,6,7))
+penultimate_2b(List(1,2,3,4,5,6,7))
+penultimate_3a(List(1,2,3,4,5,6,7))
+penultimate_3b(List(1,2,3,4,5,6,7))
