@@ -2,7 +2,7 @@ import collection.mutable
 /**
   * Problems from http://aperiodic.net/phil/scala/s-99/
   *
-  * Problem 07:
+  * Problem 08:
   *
   * Eliminate consecutive duplicates of list elements.
   * If a list contains repeated elements they should be replaced with a single copy of the element. The order of the elements should not be changed.
